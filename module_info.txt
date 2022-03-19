@@ -1,0 +1,131 @@
+Ways to define a variable in javascript: var, let, const.
+
+When a developer chooses to use let, it basically means "I might want to use this variable again later 
+to hold different data, but in this code block I'll only use it once." In ES6+, let is typically used 
+in place of var. We'll be using let in this module.
+
+The const declaration is more specific than let. Instead of being contained within a block of code, 
+const tells JavaScript that the variable won't be reassigned or redeclared, either in a block of 
+code or within the program as a whole.
+
+###Data.js file unpacking
+
+In this particular JavaScript array, we're not recording a single item and moving on to the next, 
+much like a simple list (such as [1, 2, 3]). However, here we're recording an entire event: date, 
+location, type, and even comments are saved inside a single array. 
+
+    In this code snippet, everything within the curly brackets is considered to be properties of a 
+    JavaScript object. The object is our variable: data.
+
+## 11.3
+To write a print statement in JavaScript, we begin the same way: by declaring the function. 
+To do this, we use the keyword function. (Note: Remember that the JavaScript syntax uses console.log 
+instead of print.)
+
+// Simple JavaScript console.log statement
+function printHello();
+
+// Simple JavaScript console.log statement
+function printHello() {
+  console.log("Hello there!");
+}
+
+ type clear() and press Enter to clear the working area of your console.
+
+Functions
+
+***Normal function
+function square(num){
+    return num ** 2};
+console.log(square(5));
+
+###Arrow Function
+let squared = (num) => num**2;
+console.log(squared(5));
+
+***Normal Function
+function addition(a, b){
+    return a + b;
+}
+addition (5, 5);
+
+###Arrow Function
+additions = (a, b) => a + b;
+additions(6, 9);
+
+***Normal Function 
+function doubleAddition(c, d) {
+  var total = addition(c, d) * 2;
+  return total;
+}
+
+console.log(doubleAddition(33, 25));
+
+###Arrow Function
+doubleAddition = (c, d) => addition(c, d) * 2;
+doubleAddition(33, 25) will give you 116
+----------------------------------------------------
+Iterating using For loops
+
+EXAMPLE: let friends = ["Sarah", "Greg", "Cindy", "Jeff"];
+To iterate through each name in JavaScript, we can create a for loop.
+
+function listLoop(userList) {
+   for (var i = 0; i < userList.length; i++) {
+     console.log(userList[i]);
+   }
+}
+
+listLoop(friends);
+
+####The following actions occur in this one line:
+var i = 0 We assign an iterable variable and set its value to zero. In this loop, think of the letter 'i' to 
+mean 'iterate.' When we assign a zero value, we're starting a counter from the beginning. 
+You can also think of it in terms of list comprehension–the first name of the list has an index value of zero, 
+for example.
+
+i < userList.length; Here we're basically saying, "If this iterable (i) is still smaller than the total 
+number of iterables in the list (userList), then move on to the next step."
+
+So if we're on the second name, but the list is four names long, the for loop will continue to loop through it.
+
+The final step, i++, increases the iterable by 1. We're using list comprehension here; the for loop knows to 
+iterate to the next name because the index number has increased by 1.
+
+When the length of i is equal to the total number of items in the list, the for loop will complete its 
+iterations and the next line of code will be executed. For example, Jeff's index position is 3; when i is 
+equal to 3, the loop is complete. This is because there are no names after Jeff's, nothing with an index value of 4.
+
+EXAMPLE: loop through this list
+
+let vegetables = ["Carrots", "Peas", "Lettuce", "Tomatoes"];
+
+function listLoop(vegList) {
+   for (var i = 0; i < vegList.length; i++) {
+     console.log(vegList[i]);
+   }
+}
+
+listLoop(vegetables);
+
+EXAMPLE: LOOP THROUGH NUMBERS WITHOUT USING AN array
+for (var i = 0; i < 5; i++) {
+   console.log("I am " + i);
+}
+
+EXAMPLE:
+let emotions = ["happy", "sad", "excited", "hopefull"];
+
+function listLoop(emoList) {
+    for (var i = 0; i < emoList.length; i++) {
+        console.log("I am" + emoList[i] + "today");
+    }
+}
+
+listLoop(emotions);
+
+####overview of how forEach functions work
+let numbers = [1, 2, 3, 4, 5, 6];
+numbers.forEach(function (element) {
+    console.log(element**2);
+})
