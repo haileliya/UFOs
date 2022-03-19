@@ -27,6 +27,37 @@ function buildTable(data) {
     });
 }
 
-//This time, we'll use a forEach function, which loops through the array in the same way as a for loop. 
-//The difference is that forEach works only with arrays. Another benefit is that forEach can be combined with an 
-//arrow function, once again making the code more concise and easy to read.
+//Adding filters (adding a date function). This function will run each time the filter button is clicked on
+function handleClick() {
+    //we're telling D3 to look for the #datetime id in the HTML tags, which will have an ID of "datetime"
+    //By chaining .property("value"); to the d3.select function, we're telling D3 not only to look for where our date values are stored 
+    //on the webpage, but to actually grab that information and hold it in the "date" variable
+    let date = d3.select("#datetime").property("value");
+
+    //set a default filter and save it to a new variable, which will be the original table data
+    let filteredData = tableData;
+
+    //Check for a date filter using an if statement: our if statement should read as follows; 
+    //"If there is a date already set, then use that date as a filter. If not, then return the default data."
+    if (date) {
+        //Apply `filter` to the table data to only keep the
+        //rows where the `datetime` value matches the filter value
+        filteredData = filteredData.filter(row => row.datetime === date);
+    }
+
+    // Rebuild the table using the filtered data
+    // @NOTE: If no date was entered, then filteredData will
+    // just be the original tableData.
+    buildTable(filteredData);
+
+}
+
+//Another aspect of D3.js is that it can listen for events that occur on a webpage, such as a button click. 
+//The next code we add will be tied to the filter button we'll build on our webpage. Selector string = #filter-btn which will be used in HTML
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+//Once this function is called, it will create a basic table filled with rows of unflitered data from our array
+buildTable(tableData);
+
+
+    

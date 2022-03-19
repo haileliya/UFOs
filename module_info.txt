@@ -129,3 +129,15 @@ let numbers = [1, 2, 3, 4, 5, 6];
 numbers.forEach(function (element) {
     console.log(element**2);
 })
+
+//This time, we'll use a forEach function, which loops through the array in the same way as a for loop. 
+//The difference is that forEach works only with arrays. Another benefit is that forEach can be combined with an 
+//arrow function, once again making the code more concise and easy to read.
+
+Data-Driven Documents (D3 for short) is a JavaScript library that adds interactive functionality, 
+such as when users click a button to filter a table. It works by "listening" for events, such as a button click, then reacts 
+according to the code we've created.
+
+In our code, we're going to use D3 to handle an action from a user, such as a button click. 
+This means that we'll add an actual button to our HTML page to filter the table. When the button is clicked, 
+D3 will detect the click and react accordingly. 
